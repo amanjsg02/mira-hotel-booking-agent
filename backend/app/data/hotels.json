@@ -1,0 +1,279 @@
+[
+  {
+    "id": "azure-bay-goa",
+    "name": "Azure Bay Resort",
+    "location": {
+      "city": "Goa",
+      "state": "Goa",
+      "country": "India",
+      "area": "Candolim",
+      "aliases": ["North Goa", "Candolim Beach"]
+    },
+    "amenities": [
+      "swimming_pool",
+      "wifi",
+      "restaurant",
+      "parking",
+      "beach_access"
+    ],
+    "policies": {
+      "check_in": "14:00",
+      "check_out": "11:00",
+      "cancellation": "Free cancellation up to 48 hours before check-in",
+      "children_allowed": true,
+      "pets_allowed": false
+    },
+    "add_ons": [
+      {
+        "id": "goa-airport-pickup",
+        "name": "Airport pickup",
+        "price": 1800,
+        "pricing_type": "per_booking"
+      },
+      {
+        "id": "azure-breakfast",
+        "name": "Breakfast",
+        "price": 700,
+        "pricing_type": "per_guest_per_night"
+      }
+    ],
+    "rooms": [
+      {
+        "id": "azure-deluxe",
+        "name": "Deluxe Garden Room",
+        "price_per_night": 7500,
+        "capacity": 3,
+        "quantity": 4,
+        "amenities": [
+          "wifi",
+          "garden_view",
+          "air_conditioning"
+        ],
+        "unavailable_dates": ["2026-09-05"]
+      },
+      {
+        "id": "azure-pool-villa",
+        "name": "Private Pool Villa",
+        "price_per_night": 18000,
+        "capacity": 4,
+        "quantity": 2,
+        "amenities": [
+          "private_pool",
+          "wifi",
+          "bathtub",
+          "breakfast_included"
+        ],
+        "unavailable_dates": [
+          "2026-09-12",
+          "2026-09-13"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "royal-haveli-jaipur",
+    "name": "Royal Haveli Jaipur",
+    "location": {
+      "city": "Jaipur",
+      "state": "Rajasthan",
+      "country": "India",
+      "area": "Amer",
+      "aliases": ["Pink City", "Amer Fort"]
+    },
+    "amenities": [
+      "swimming_pool",
+      "wifi",
+      "restaurant",
+      "parking",
+      "spa"
+    ],
+    "policies": {
+      "check_in": "14:00",
+      "check_out": "11:00",
+      "cancellation": "Free cancellation up to 72 hours before check-in",
+      "children_allowed": true,
+      "pets_allowed": false
+    },
+    "add_ons": [
+      {
+        "id": "jaipur-airport-pickup",
+        "name": "Airport pickup",
+        "price": 1400,
+        "pricing_type": "per_booking"
+      },
+      {
+        "id": "heritage-dinner",
+        "name": "Heritage courtyard dinner",
+        "price": 2500,
+        "pricing_type": "per_booking"
+      }
+    ],
+    "rooms": [
+      {
+        "id": "haveli-deluxe",
+        "name": "Heritage Deluxe Room",
+        "price_per_night": 6500,
+        "capacity": 2,
+        "quantity": 6,
+        "amenities": [
+          "wifi",
+          "courtyard_view",
+          "air_conditioning"
+        ],
+        "unavailable_dates": []
+      },
+      {
+        "id": "haveli-family-suite",
+        "name": "Royal Family Suite",
+        "price_per_night": 12000,
+        "capacity": 5,
+        "quantity": 3,
+        "amenities": [
+          "wifi",
+          "two_bedrooms",
+          "bathtub",
+          "breakfast_included"
+        ],
+        "unavailable_dates": ["2026-10-02"]
+      }
+    ]
+  },
+  {
+    "id": "snowcrest-manali",
+    "name": "Snowcrest Mountain Retreat",
+    "location": {
+      "city": "Manali",
+      "state": "Himachal Pradesh",
+      "country": "India",
+      "area": "Old Manali",
+      "aliases": ["Old Manali", "Hidimba Road"]
+    },
+    "amenities": [
+      "wifi",
+      "restaurant",
+      "parking",
+      "mountain_view",
+      "bonfire"
+    ],
+    "policies": {
+      "check_in": "13:00",
+      "check_out": "11:00",
+      "cancellation": "Free cancellation up to 48 hours before check-in",
+      "children_allowed": true,
+      "pets_allowed": true
+    },
+    "add_ons": [
+      {
+        "id": "manali-bus-pickup",
+        "name": "Bus stand pickup",
+        "price": 800,
+        "pricing_type": "per_booking"
+      },
+      {
+        "id": "guided-trek",
+        "name": "Guided local trek",
+        "price": 1600,
+        "pricing_type": "per_guest"
+      }
+    ],
+    "rooms": [
+      {
+        "id": "snowcrest-cabin",
+        "name": "Mountain View Cabin",
+        "price_per_night": 8500,
+        "capacity": 3,
+        "quantity": 4,
+        "amenities": [
+          "wifi",
+          "mountain_view",
+          "balcony",
+          "heater"
+        ],
+        "unavailable_dates": []
+      },
+      {
+        "id": "snowcrest-family-cottage",
+        "name": "Family Cottage",
+        "price_per_night": 13500,
+        "capacity": 6,
+        "quantity": 2,
+        "amenities": [
+          "wifi",
+          "mountain_view",
+          "two_bedrooms",
+          "heater",
+          "private_garden"
+        ],
+        "unavailable_dates": ["2026-12-24", "2026-12-25"]
+      }
+    ]
+  },
+  {
+    "id": "urban-nest-mumbai",
+    "name": "Urban Nest Mumbai",
+    "location": {
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "country": "India",
+      "area": "Bandra",
+      "aliases": ["Bandra West", "Bandra"]
+    },
+    "amenities": [
+      "wifi",
+      "restaurant",
+      "gym",
+      "parking",
+      "business_center"
+    ],
+    "policies": {
+      "check_in": "15:00",
+      "check_out": "12:00",
+      "cancellation": "Non-refundable",
+      "children_allowed": true,
+      "pets_allowed": false
+    },
+    "add_ons": [
+      {
+        "id": "mumbai-airport-pickup",
+        "name": "Airport pickup",
+        "price": 1500,
+        "pricing_type": "per_booking"
+      },
+      {
+        "id": "urban-breakfast",
+        "name": "Breakfast",
+        "price": 900,
+        "pricing_type": "per_guest_per_night"
+      }
+    ],
+    "rooms": [
+      {
+        "id": "urban-business",
+        "name": "Business King Room",
+        "price_per_night": 9500,
+        "capacity": 2,
+        "quantity": 8,
+        "amenities": [
+          "wifi",
+          "work_desk",
+          "air_conditioning"
+        ],
+        "unavailable_dates": []
+      },
+      {
+        "id": "urban-family",
+        "name": "Family City Suite",
+        "price_per_night": 16500,
+        "capacity": 4,
+        "quantity": 3,
+        "amenities": [
+          "wifi",
+          "living_room",
+          "city_view",
+          "breakfast_included"
+        ],
+        "unavailable_dates": []
+      }
+    ]
+  }
+]

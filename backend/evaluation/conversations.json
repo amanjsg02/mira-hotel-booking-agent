@@ -1,0 +1,221 @@
+[
+  {
+    "id": "complete-request",
+    "name": "Complete Goa request",
+    "messages": [
+      "I need a hotel in Goa from 5 September 2026 to 8 September 2026 for 2 adults under ₹20000 per night."
+    ],
+    "expected": {
+      "state": {
+        "destination": "Goa",
+        "check_in": "2026-09-05",
+        "check_out": "2026-09-08",
+        "guests.adults": 2,
+        "budget_per_night": 20000
+      },
+      "required_tools": [
+  "update_booking_state",
+  "find_recommendations"
+]
+    }
+  },
+  {
+    "id": "budget-update",
+    "name": "Budget update preserves context",
+    "messages": [
+      "I need a hotel in Goa from 5 September 2026 to 8 September 2026 for 2 adults under ₹15000.",
+      "Increase my budget by ₹5000."
+    ],
+    "expected": {
+      "state": {
+        "destination": "Goa",
+        "check_in": "2026-09-05",
+        "check_out": "2026-09-08",
+        "guests.adults": 2,
+        "budget_per_night": 20000
+      },
+      "required_tools": [
+        "update_booking_state"
+      ]
+    }
+  },
+  {
+    "id": "guest-separation",
+    "name": "Adults and children remain separate",
+    "messages": [
+      "Find a hotel in Jaipur from 5 September 2026 to 8 September 2026 for 3 adults and 2 children."
+    ],
+    "expected": {
+      "state": {
+        "destination": "Jaipur",
+        "guests.adults": 3,
+        "guests.children": 2
+      },
+      "required_tools": [
+  "update_booking_state",
+  "find_recommendations"
+]
+    }
+  },
+  {
+    "id": "change-children",
+    "name": "Changing children preserves adults",
+    "messages": [
+      "Find a hotel in Jaipur from 5 September 2026 to 8 September 2026 for 3 adults and 2 children.",
+      "Actually only one child is travelling now."
+    ],
+    "expected": {
+      "state": {
+        "destination": "Jaipur",
+        "guests.adults": 3,
+        "guests.children": 1
+      },
+      "required_tools": [
+        "update_booking_state"
+      ]
+    }
+  },
+  {
+    "id": "extend-stay",
+    "name": "Extending stay updates checkout",
+    "messages": [
+      "Find a hotel in Goa from 5 September 2026 to 8 September 2026 for 2 adults.",
+      "Stay one more night."
+    ],
+    "expected": {
+      "state": {
+        "destination": "Goa",
+        "check_in": "2026-09-05",
+        "check_out": "2026-09-09",
+        "guests.adults": 2
+      },
+      "required_tools": [
+        "update_booking_state"
+      ]
+    }
+  },
+  {
+    "id": "preferred-amenity",
+    "name": "Preferred amenity is not mandatory",
+    "messages": [
+      "Find a hotel in Goa from 5 September 2026 to 8 September 2026 for 2 adults. A private pool would be nice but is not mandatory."
+    ],
+    "expected": {
+      "state": {
+        "destination": "Goa"
+      },
+      "contains_in_state": {
+        "preferred_amenities": "private_pool"
+      }
+    }
+  },
+  {
+    "id": "required-amenity",
+    "name": "Mandatory amenity is required",
+    "messages": [
+      "Find a hotel in Goa from 5 September 2026 to 8 September 2026 for 2 adults. A private pool is mandatory."
+    ],
+    "expected": {
+      "state": {
+        "destination": "Goa"
+      },
+      "contains_in_state": {
+        "required_amenities": "private_pool"
+      }
+    }
+  },
+  {
+    "id": "unsupported-destination",
+    "name": "Unsupported destination is not invented",
+    "messages": [
+      "Find a hotel in Paris from 5 September 2026 to 8 September 2026 for 2 adults."
+    ],
+    "expected": {
+      "forbidden_response_phrases": [
+        "Paris hotel is available",
+        "your Paris room is available"
+      ]
+    }
+  },
+ {
+  "id": "unknown-information",
+  "name": "Unknown heated pool information",
+  "messages": [
+    "Find a hotel in Goa from 5 September 2026 to 8 September 2026 for 2 adults.",
+    "Is the swimming pool heated?"
+  ],
+  "expected": {
+    "response_any_phrases": [
+      "not available",
+      "not specified",
+      "does not specify",
+      "doesn't specify",
+      "do not have that information",
+      "cannot confirm",
+      "whether the pool is heated"
+    ],
+    "forbidden_response_phrases": [
+      "yes, the pool is heated",
+      "yes, it is heated",
+      "the pool is definitely heated",
+      "the hotel provides a heated pool",
+      "the hotel has a heated pool"
+    ]
+  }
+},
+  {
+    "id": "capacity-conflict",
+    "name": "Capacity conflict is handled",
+    "messages": [
+      "Find one room in Goa from 5 September 2026 to 8 September 2026 for 10 adults."
+    ],
+    "expected": {
+      "state": {
+        "destination": "Goa",
+        "guests.adults": 10
+      },
+      "forbidden_response_phrases": [
+        "I have reserved a room",
+        "booking hold has been created"
+      ]
+    }
+  },
+  {
+    "id": "too-expensive-recovery",
+    "name": "Too expensive preserves context",
+    "messages": [
+      "Find a hotel in Goa from 5 September 2026 to 8 September 2026 for 2 adults under ₹25000.",
+      "That is too expensive. Show me a cheaper valid option."
+    ],
+    "expected": {
+      "state": {
+        "destination": "Goa",
+        "check_in": "2026-09-05",
+        "check_out": "2026-09-08",
+        "guests.adults": 2
+      }
+    }
+  },
+ {
+  "id": "invalid-date-order",
+  "name": "Invalid date order is rejected",
+  "messages": [
+    "Find a hotel in Goa for 2 adults. Check-in is 10 September 2026 and checkout is 8 September 2026."
+  ],
+  "expected": {
+    "response_any_phrases": [
+      "before"
+    ],
+    "required_tools": [
+      "update_booking_state"
+    ],
+    "forbidden_tools": [
+      "find_recommendations",
+      "search_properties",
+      "check_availability",
+      "calculate_price",
+      "create_booking_hold"
+    ]
+  }
+}
+]

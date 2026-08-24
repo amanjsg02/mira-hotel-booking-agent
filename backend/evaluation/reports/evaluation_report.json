@@ -1,0 +1,2488 @@
+{
+  "generated_at": "2026-08-24T14:06:45.008387+00:00",
+  "total_scenarios": 12,
+  "passed": 12,
+  "failed": 0,
+  "pass_rate": 100.0,
+  "results": [
+    {
+      "id": "complete-request",
+      "name": "Complete Goa request",
+      "session_id": "eval-complete-request-c8a1151682024b8eb76302d145a2a3ad",
+      "passed": true,
+      "failures": [],
+      "tool_names": [
+        "update_booking_state",
+        "find_recommendations"
+      ],
+      "tool_traces": [
+        {
+          "tool": "update_booking_state",
+          "arguments": {
+            "destination": "Goa",
+            "check_in": "2026-09-05",
+            "check_out": "2026-09-08",
+            "adults": 2,
+            "children": 0,
+            "budget_per_night": 20000,
+            "required_amenities": null,
+            "preferred_amenities": null,
+            "special_requirements": null
+          },
+          "result": {
+            "updated": true,
+            "changed_fields": [
+              "destination",
+              "check_in",
+              "check_out",
+              "adults",
+              "children",
+              "budget_per_night"
+            ],
+            "state": {
+              "destination": "Goa",
+              "check_in": "2026-09-05",
+              "check_out": "2026-09-08",
+              "guests": {
+                "adults": 2,
+                "children": 0
+              },
+              "budget_per_night": 20000,
+              "required_amenities": [],
+              "preferred_amenities": [],
+              "special_requirements": [],
+              "selected_property_id": null,
+              "selected_room_id": null,
+              "last_search_results": [],
+              "current_option_index": null,
+              "selected_add_ons": [],
+              "suggested_add_ons": [],
+              "last_agent_action": null,
+              "pending_confirmation": null,
+              "active_hold_id": null
+            }
+          },
+          "status": "success"
+        },
+        {
+          "tool": "find_recommendations",
+          "arguments": {},
+          "result": {
+            "count": 1,
+            "options": [
+              {
+                "property_id": "azure-bay-goa",
+                "property_name": "Azure Bay Resort",
+                "room_id": "azure-pool-villa",
+                "room_name": "Private Pool Villa",
+                "city": "Goa",
+                "area": "Candolim",
+                "capacity": 4,
+                "price_per_night": 18000,
+                "total_price": 54000,
+                "currency": "INR",
+                "number_of_nights": 3,
+                "amenities": [
+                  "bathtub",
+                  "beach_access",
+                  "breakfast_included",
+                  "parking",
+                  "private_pool",
+                  "restaurant",
+                  "swimming_pool",
+                  "wifi"
+                ],
+                "score": 30.0,
+                "match_reasons": [
+                  "Within the nightly budget",
+                  "Has extra guest capacity",
+                  "Breakfast is included"
+                ],
+                "available": true
+              }
+            ]
+          },
+          "status": "success"
+        }
+      ],
+      "final_response": "We found a great option for your stay in Goa:\n\n**1. Private Pool Villa at Azure Bay Resort** (Candolim)\n* **Nightly Price:** ₹18,000 | **Total Price:** ₹54,000 (3 nights)\n* **Why it's a match:** Within your nightly budget, offers extra guest capacity, and includes breakfast.\n* **Amenities:** Private pool, beach access, swimming pool, complimentary breakfast, Wi-Fi, parking, bathtub, and restaurant.\n\nWould you like to select this option, see more details, or explore other preferences?",
+      "final_state": {
+        "destination": "Goa",
+        "check_in": "2026-09-05",
+        "check_out": "2026-09-08",
+        "guests": {
+          "adults": 2,
+          "children": 0
+        },
+        "budget_per_night": 20000,
+        "required_amenities": [],
+        "preferred_amenities": [],
+        "special_requirements": [],
+        "selected_property_id": "azure-bay-goa",
+        "selected_room_id": "azure-pool-villa",
+        "last_search_results": [
+          {
+            "property_id": "azure-bay-goa",
+            "property_name": "Azure Bay Resort",
+            "room_id": "azure-pool-villa",
+            "room_name": "Private Pool Villa",
+            "city": "Goa",
+            "area": "Candolim",
+            "capacity": 4,
+            "price_per_night": 18000,
+            "total_price": 54000,
+            "currency": "INR",
+            "number_of_nights": 3,
+            "amenities": [
+              "bathtub",
+              "beach_access",
+              "breakfast_included",
+              "parking",
+              "private_pool",
+              "restaurant",
+              "swimming_pool",
+              "wifi"
+            ],
+            "score": 30.0,
+            "match_reasons": [
+              "Within the nightly budget",
+              "Has extra guest capacity",
+              "Breakfast is included"
+            ],
+            "available": true
+          }
+        ],
+        "current_option_index": 0,
+        "selected_add_ons": [],
+        "suggested_add_ons": [],
+        "last_agent_action": "recommend_options",
+        "pending_confirmation": null,
+        "active_hold_id": null
+      },
+      "final_action": "update_state",
+      "final_next_action": "collect_missing_information_or_search",
+      "agent_mode": "phase2",
+      "model_name": "gemini-3.6-flash"
+    },
+    {
+      "id": "budget-update",
+      "name": "Budget update preserves context",
+      "session_id": "eval-budget-update-1ba73a3be2b34c8a81f8bb31a09d57a1",
+      "passed": true,
+      "failures": [],
+      "tool_names": [
+        "update_booking_state",
+        "find_recommendations",
+        "get_supported_destinations",
+        "search_properties",
+        "check_availability",
+        "search_properties",
+        "check_availability",
+        "find_alternatives",
+        "calculate_price",
+        "update_booking_state",
+        "find_recommendations"
+      ],
+      "tool_traces": [
+        {
+          "tool": "update_booking_state",
+          "arguments": {
+            "destination": "Goa",
+            "check_in": "2026-09-05",
+            "check_out": "2026-09-08",
+            "adults": 2,
+            "children": 0,
+            "budget_per_night": 15000,
+            "required_amenities": null,
+            "preferred_amenities": null,
+            "special_requirements": null
+          },
+          "result": {
+            "updated": true,
+            "changed_fields": [
+              "destination",
+              "check_in",
+              "check_out",
+              "adults",
+              "children",
+              "budget_per_night"
+            ],
+            "state": {
+              "destination": "Goa",
+              "check_in": "2026-09-05",
+              "check_out": "2026-09-08",
+              "guests": {
+                "adults": 2,
+                "children": 0
+              },
+              "budget_per_night": 15000,
+              "required_amenities": [],
+              "preferred_amenities": [],
+              "special_requirements": [],
+              "selected_property_id": null,
+              "selected_room_id": null,
+              "last_search_results": [],
+              "current_option_index": null,
+              "selected_add_ons": [],
+              "suggested_add_ons": [],
+              "last_agent_action": null,
+              "pending_confirmation": null,
+              "active_hold_id": null
+            }
+          },
+          "status": "success"
+        },
+        {
+          "tool": "find_recommendations",
+          "arguments": {},
+          "result": {
+            "count": 0,
+            "options": []
+          },
+          "status": "success"
+        },
+        {
+          "tool": "get_supported_destinations",
+          "arguments": {},
+          "result": [
+            "Goa",
+            "Jaipur",
+            "Manali",
+            "Mumbai"
+          ],
+          "status": "success"
+        },
+        {
+          "tool": "search_properties",
+          "arguments": {
+            "destination": "Goa",
+            "guest_count": 2,
+            "budget_per_night": 15000,
+            "required_amenities": []
+          },
+          "result": [
+            {
+              "property_id": "azure-bay-goa",
+              "property_name": "Azure Bay Resort",
+              "city": "Goa",
+              "state": "Goa",
+              "country": "India",
+              "area": "Candolim",
+              "room_id": "azure-deluxe",
+              "room_name": "Deluxe Garden Room",
+              "capacity": 3,
+              "price_per_night": 7500,
+              "currency": "INR",
+              "property_amenities": [
+                "swimming_pool",
+                "wifi",
+                "restaurant",
+                "parking",
+                "beach_access"
+              ],
+              "room_amenities": [
+                "wifi",
+                "garden_view",
+                "air_conditioning"
+              ],
+              "combined_amenities": [
+                "air_conditioning",
+                "beach_access",
+                "garden_view",
+                "parking",
+                "restaurant",
+                "swimming_pool",
+                "wifi"
+              ]
+            }
+          ],
+          "status": "success"
+        },
+        {
+          "tool": "check_availability",
+          "arguments": {
+            "room_id": "azure-deluxe",
+            "check_in": "2026-09-05",
+            "check_out": "2026-09-08"
+          },
+          "result": {
+            "property_id": "azure-bay-goa",
+            "property_name": "Azure Bay Resort",
+            "room_id": "azure-deluxe",
+            "room_name": "Deluxe Garden Room",
+            "check_in": "2026-09-05",
+            "check_out": "2026-09-08",
+            "available": false,
+            "available_quantity": 0
+          },
+          "status": "success"
+        },
+        {
+          "tool": "search_properties",
+          "arguments": {
+            "destination": "Goa",
+            "guest_count": 2,
+            "budget_per_night": null,
+            "required_amenities": []
+          },
+          "result": [
+            {
+              "property_id": "azure-bay-goa",
+              "property_name": "Azure Bay Resort",
+              "city": "Goa",
+              "state": "Goa",
+              "country": "India",
+              "area": "Candolim",
+              "room_id": "azure-deluxe",
+              "room_name": "Deluxe Garden Room",
+              "capacity": 3,
+              "price_per_night": 7500,
+              "currency": "INR",
+              "property_amenities": [
+                "swimming_pool",
+                "wifi",
+                "restaurant",
+                "parking",
+                "beach_access"
+              ],
+              "room_amenities": [
+                "wifi",
+                "garden_view",
+                "air_conditioning"
+              ],
+              "combined_amenities": [
+                "air_conditioning",
+                "beach_access",
+                "garden_view",
+                "parking",
+                "restaurant",
+                "swimming_pool",
+                "wifi"
+              ]
+            },
+            {
+              "property_id": "azure-bay-goa",
+              "property_name": "Azure Bay Resort",
+              "city": "Goa",
+              "state": "Goa",
+              "country": "India",
+              "area": "Candolim",
+              "room_id": "azure-pool-villa",
+              "room_name": "Private Pool Villa",
+              "capacity": 4,
+              "price_per_night": 18000,
+              "currency": "INR",
+              "property_amenities": [
+                "swimming_pool",
+                "wifi",
+                "restaurant",
+                "parking",
+                "beach_access"
+              ],
+              "room_amenities": [
+                "private_pool",
+                "wifi",
+                "bathtub",
+                "breakfast_included"
+              ],
+              "combined_amenities": [
+                "bathtub",
+                "beach_access",
+                "breakfast_included",
+                "parking",
+                "private_pool",
+                "restaurant",
+                "swimming_pool",
+                "wifi"
+              ]
+            }
+          ],
+          "status": "success"
+        },
+        {
+          "tool": "check_availability",
+          "arguments": {
+            "room_id": "azure-pool-villa",
+            "check_in": "2026-09-05",
+            "check_out": "2026-09-08"
+          },
+          "result": {
+            "property_id": "azure-bay-goa",
+            "property_name": "Azure Bay Resort",
+            "room_id": "azure-pool-villa",
+            "room_name": "Private Pool Villa",
+            "check_in": "2026-09-05",
+            "check_out": "2026-09-08",
+            "available": true,
+            "available_quantity": 2
+          },
+          "status": "success"
+        },
+        {
+          "tool": "find_alternatives",
+          "arguments": {
+            "mode": "increase_budget"
+          },
+          "result": {
+            "mode": "increase_budget",
+            "changed_constraints": [
+              "Increased search budget from ₹15,000 to ₹18,000"
+            ],
+            "options": [
+              {
+                "property_id": "azure-bay-goa",
+                "property_name": "Azure Bay Resort",
+                "room_id": "azure-pool-villa",
+                "room_name": "Private Pool Villa",
+                "city": "Goa",
+                "area": "Candolim",
+                "capacity": 4,
+                "price_per_night": 18000,
+                "total_price": 54000,
+                "currency": "INR",
+                "number_of_nights": 3,
+                "amenities": [
+                  "bathtub",
+                  "beach_access",
+                  "breakfast_included",
+                  "parking",
+                  "private_pool",
+                  "restaurant",
+                  "swimming_pool",
+                  "wifi"
+                ],
+                "score": 30.0,
+                "match_reasons": [
+                  "Within the nightly budget",
+                  "Has extra guest capacity",
+                  "Breakfast is included"
+                ],
+                "available": true
+              }
+            ]
+          },
+          "status": "success"
+        },
+        {
+          "tool": "calculate_price",
+          "arguments": {
+            "room_id": "azure-pool-villa",
+            "check_in": "2026-09-05",
+            "check_out": "2026-09-08",
+            "guest_count": 2,
+            "selected_add_ons": []
+          },
+          "result": {
+            "property_id": "azure-bay-goa",
+            "property_name": "Azure Bay Resort",
+            "room_id": "azure-pool-villa",
+            "room_name": "Private Pool Villa",
+            "currency": "INR",
+            "check_in": "2026-09-05",
+            "check_out": "2026-09-08",
+            "number_of_nights": 3,
+            "guest_count": 2,
+            "price_per_night": 18000,
+            "room_subtotal": 54000,
+            "selected_add_ons": [],
+            "add_on_total": 0,
+            "total": 54000
+          },
+          "status": "success"
+        },
+        {
+          "tool": "update_booking_state",
+          "arguments": {
+            "destination": null,
+            "check_in": null,
+            "check_out": null,
+            "adults": null,
+            "children": null,
+            "budget_per_night": 20000,
+            "required_amenities": null,
+            "preferred_amenities": null,
+            "special_requirements": null
+          },
+          "result": {
+            "updated": true,
+            "changed_fields": [
+              "budget_per_night"
+            ],
+            "state": {
+              "destination": "Goa",
+              "check_in": "2026-09-05",
+              "check_out": "2026-09-08",
+              "guests": {
+                "adults": 2,
+                "children": 0
+              },
+              "budget_per_night": 20000,
+              "required_amenities": [],
+              "preferred_amenities": [],
+              "special_requirements": [],
+              "selected_property_id": null,
+              "selected_room_id": null,
+              "last_search_results": [],
+              "current_option_index": null,
+              "selected_add_ons": [],
+              "suggested_add_ons": [],
+              "last_agent_action": "recommend_options",
+              "pending_confirmation": null,
+              "active_hold_id": null
+            }
+          },
+          "status": "success"
+        },
+        {
+          "tool": "find_recommendations",
+          "arguments": {},
+          "result": {
+            "count": 1,
+            "options": [
+              {
+                "property_id": "azure-bay-goa",
+                "property_name": "Azure Bay Resort",
+                "room_id": "azure-pool-villa",
+                "room_name": "Private Pool Villa",
+                "city": "Goa",
+                "area": "Candolim",
+                "capacity": 4,
+                "price_per_night": 18000,
+                "total_price": 54000,
+                "currency": "INR",
+                "number_of_nights": 3,
+                "amenities": [
+                  "bathtub",
+                  "beach_access",
+                  "breakfast_included",
+                  "parking",
+                  "private_pool",
+                  "restaurant",
+                  "swimming_pool",
+                  "wifi"
+                ],
+                "score": 30.0,
+                "match_reasons": [
+                  "Within the nightly budget",
+                  "Has extra guest capacity",
+                  "Breakfast is included"
+                ],
+                "available": true
+              }
+            ]
+          },
+          "status": "success"
+        }
+      ],
+      "final_response": "I have updated your nightly budget to ₹20,000. Here is the recommended option for your stay in Goa from September 5 to September 8, 2026 (3 nights, 2 adults):\n\n**1. Azure Bay Resort – Private Pool Villa** (Candolim, Goa)\n- **Price:** ₹18,000 / night (Total: ₹54,000 for 3 nights)\n- **Highlights:** Within your budget, includes breakfast, extra guest capacity (up to 4 guests), private pool, beach access, bathtub, and Wi-Fi.\n\nWould you like to select this room, explore add-ons, or view cancellation policies?",
+      "final_state": {
+        "destination": "Goa",
+        "check_in": "2026-09-05",
+        "check_out": "2026-09-08",
+        "guests": {
+          "adults": 2,
+          "children": 0
+        },
+        "budget_per_night": 20000,
+        "required_amenities": [],
+        "preferred_amenities": [],
+        "special_requirements": [],
+        "selected_property_id": "azure-bay-goa",
+        "selected_room_id": "azure-pool-villa",
+        "last_search_results": [
+          {
+            "property_id": "azure-bay-goa",
+            "property_name": "Azure Bay Resort",
+            "room_id": "azure-pool-villa",
+            "room_name": "Private Pool Villa",
+            "city": "Goa",
+            "area": "Candolim",
+            "capacity": 4,
+            "price_per_night": 18000,
+            "total_price": 54000,
+            "currency": "INR",
+            "number_of_nights": 3,
+            "amenities": [
+              "bathtub",
+              "beach_access",
+              "breakfast_included",
+              "parking",
+              "private_pool",
+              "restaurant",
+              "swimming_pool",
+              "wifi"
+            ],
+            "score": 30.0,
+            "match_reasons": [
+              "Within the nightly budget",
+              "Has extra guest capacity",
+              "Breakfast is included"
+            ],
+            "available": true
+          }
+        ],
+        "current_option_index": 0,
+        "selected_add_ons": [],
+        "suggested_add_ons": [],
+        "last_agent_action": "recommend_options",
+        "pending_confirmation": null,
+        "active_hold_id": null
+      },
+      "final_action": "update_state",
+      "final_next_action": "collect_missing_information_or_search",
+      "agent_mode": "phase2",
+      "model_name": "gemini-3.6-flash"
+    },
+    {
+      "id": "guest-separation",
+      "name": "Adults and children remain separate",
+      "session_id": "eval-guest-separation-9bbbcf7ce7de48a292645c52941e589b",
+      "passed": true,
+      "failures": [],
+      "tool_names": [
+        "update_booking_state",
+        "find_recommendations"
+      ],
+      "tool_traces": [
+        {
+          "tool": "update_booking_state",
+          "arguments": {
+            "destination": "Jaipur",
+            "check_in": "2026-09-05",
+            "check_out": "2026-09-08",
+            "adults": 3,
+            "children": 2,
+            "budget_per_night": null,
+            "required_amenities": null,
+            "preferred_amenities": null,
+            "special_requirements": null
+          },
+          "result": {
+            "updated": true,
+            "changed_fields": [
+              "destination",
+              "check_in",
+              "check_out",
+              "adults",
+              "children"
+            ],
+            "state": {
+              "destination": "Jaipur",
+              "check_in": "2026-09-05",
+              "check_out": "2026-09-08",
+              "guests": {
+                "adults": 3,
+                "children": 2
+              },
+              "budget_per_night": null,
+              "required_amenities": [],
+              "preferred_amenities": [],
+              "special_requirements": [],
+              "selected_property_id": null,
+              "selected_room_id": null,
+              "last_search_results": [],
+              "current_option_index": null,
+              "selected_add_ons": [],
+              "suggested_add_ons": [],
+              "last_agent_action": null,
+              "pending_confirmation": null,
+              "active_hold_id": null
+            }
+          },
+          "status": "success"
+        },
+        {
+          "tool": "find_recommendations",
+          "arguments": {},
+          "result": {
+            "count": 1,
+            "options": [
+              {
+                "property_id": "royal-haveli-jaipur",
+                "property_name": "Royal Haveli Jaipur",
+                "room_id": "haveli-family-suite",
+                "room_name": "Royal Family Suite",
+                "city": "Jaipur",
+                "area": "Amer",
+                "capacity": 5,
+                "price_per_night": 12000,
+                "total_price": 36000,
+                "currency": "INR",
+                "number_of_nights": 3,
+                "amenities": [
+                  "bathtub",
+                  "breakfast_included",
+                  "parking",
+                  "restaurant",
+                  "spa",
+                  "swimming_pool",
+                  "two_bedrooms",
+                  "wifi"
+                ],
+                "score": 15.0,
+                "match_reasons": [
+                  "Exact guest-capacity match",
+                  "Breakfast is included"
+                ],
+                "available": true
+              }
+            ]
+          },
+          "status": "success"
+        }
+      ],
+      "final_response": "We found a great option in Jaipur for your stay from September 5, 2026 to September 8, 2026 (3 nights) for 3 adults and 2 children:\n\n### Option 1: **Royal Haveli Jaipur** — *Royal Family Suite*\n* **Location:** Amer, Jaipur\n* **Capacity:** Up to 5 guests\n* **Rate:** ₹12,000 per night\n* **Total Price:** ₹36,000 for 3 nights\n* **Included Amenities:** Breakfast included, Swimming pool, Spa, Wifi, Two bedrooms, Bathtub, Parking, Restaurant\n* **Why it fits:** Exact capacity match for 5 guests, complimentary breakfast included.\n\nWould you like to select this room, check add-on options, or view policies?",
+      "final_state": {
+        "destination": "Jaipur",
+        "check_in": "2026-09-05",
+        "check_out": "2026-09-08",
+        "guests": {
+          "adults": 3,
+          "children": 2
+        },
+        "budget_per_night": null,
+        "required_amenities": [],
+        "preferred_amenities": [],
+        "special_requirements": [],
+        "selected_property_id": "royal-haveli-jaipur",
+        "selected_room_id": "haveli-family-suite",
+        "last_search_results": [
+          {
+            "property_id": "royal-haveli-jaipur",
+            "property_name": "Royal Haveli Jaipur",
+            "room_id": "haveli-family-suite",
+            "room_name": "Royal Family Suite",
+            "city": "Jaipur",
+            "area": "Amer",
+            "capacity": 5,
+            "price_per_night": 12000,
+            "total_price": 36000,
+            "currency": "INR",
+            "number_of_nights": 3,
+            "amenities": [
+              "bathtub",
+              "breakfast_included",
+              "parking",
+              "restaurant",
+              "spa",
+              "swimming_pool",
+              "two_bedrooms",
+              "wifi"
+            ],
+            "score": 15.0,
+            "match_reasons": [
+              "Exact guest-capacity match",
+              "Breakfast is included"
+            ],
+            "available": true
+          }
+        ],
+        "current_option_index": 0,
+        "selected_add_ons": [],
+        "suggested_add_ons": [],
+        "last_agent_action": "recommend_options",
+        "pending_confirmation": null,
+        "active_hold_id": null
+      },
+      "final_action": "update_state",
+      "final_next_action": "collect_missing_information_or_search",
+      "agent_mode": "phase2",
+      "model_name": "gemini-3.6-flash"
+    },
+    {
+      "id": "change-children",
+      "name": "Changing children preserves adults",
+      "session_id": "eval-change-children-c43b82c489434cf0b63094621fc34d06",
+      "passed": true,
+      "failures": [],
+      "tool_names": [
+        "update_booking_state",
+        "find_recommendations",
+        "update_booking_state",
+        "find_recommendations"
+      ],
+      "tool_traces": [
+        {
+          "tool": "update_booking_state",
+          "arguments": {
+            "destination": "Jaipur",
+            "check_in": "2026-09-05",
+            "check_out": "2026-09-08",
+            "adults": 3,
+            "children": 2,
+            "budget_per_night": null,
+            "required_amenities": null,
+            "preferred_amenities": null,
+            "special_requirements": null
+          },
+          "result": {
+            "updated": true,
+            "changed_fields": [
+              "destination",
+              "check_in",
+              "check_out",
+              "adults",
+              "children"
+            ],
+            "state": {
+              "destination": "Jaipur",
+              "check_in": "2026-09-05",
+              "check_out": "2026-09-08",
+              "guests": {
+                "adults": 3,
+                "children": 2
+              },
+              "budget_per_night": null,
+              "required_amenities": [],
+              "preferred_amenities": [],
+              "special_requirements": [],
+              "selected_property_id": null,
+              "selected_room_id": null,
+              "last_search_results": [],
+              "current_option_index": null,
+              "selected_add_ons": [],
+              "suggested_add_ons": [],
+              "last_agent_action": null,
+              "pending_confirmation": null,
+              "active_hold_id": null
+            }
+          },
+          "status": "success"
+        },
+        {
+          "tool": "find_recommendations",
+          "arguments": {},
+          "result": {
+            "count": 1,
+            "options": [
+              {
+                "property_id": "royal-haveli-jaipur",
+                "property_name": "Royal Haveli Jaipur",
+                "room_id": "haveli-family-suite",
+                "room_name": "Royal Family Suite",
+                "city": "Jaipur",
+                "area": "Amer",
+                "capacity": 5,
+                "price_per_night": 12000,
+                "total_price": 36000,
+                "currency": "INR",
+                "number_of_nights": 3,
+                "amenities": [
+                  "bathtub",
+                  "breakfast_included",
+                  "parking",
+                  "restaurant",
+                  "spa",
+                  "swimming_pool",
+                  "two_bedrooms",
+                  "wifi"
+                ],
+                "score": 15.0,
+                "match_reasons": [
+                  "Exact guest-capacity match",
+                  "Breakfast is included"
+                ],
+                "available": true
+              }
+            ]
+          },
+          "status": "success"
+        },
+        {
+          "tool": "update_booking_state",
+          "arguments": {
+            "destination": null,
+            "check_in": null,
+            "check_out": null,
+            "adults": null,
+            "children": 1,
+            "budget_per_night": null,
+            "required_amenities": null,
+            "preferred_amenities": null,
+            "special_requirements": null
+          },
+          "result": {
+            "updated": true,
+            "changed_fields": [
+              "children"
+            ],
+            "state": {
+              "destination": "Jaipur",
+              "check_in": "2026-09-05",
+              "check_out": "2026-09-08",
+              "guests": {
+                "adults": 3,
+                "children": 1
+              },
+              "budget_per_night": null,
+              "required_amenities": [],
+              "preferred_amenities": [],
+              "special_requirements": [],
+              "selected_property_id": null,
+              "selected_room_id": null,
+              "last_search_results": [],
+              "current_option_index": null,
+              "selected_add_ons": [],
+              "suggested_add_ons": [],
+              "last_agent_action": "recommend_options",
+              "pending_confirmation": null,
+              "active_hold_id": null
+            }
+          },
+          "status": "success"
+        },
+        {
+          "tool": "find_recommendations",
+          "arguments": {},
+          "result": {
+            "count": 1,
+            "options": [
+              {
+                "property_id": "royal-haveli-jaipur",
+                "property_name": "Royal Haveli Jaipur",
+                "room_id": "haveli-family-suite",
+                "room_name": "Royal Family Suite",
+                "city": "Jaipur",
+                "area": "Amer",
+                "capacity": 5,
+                "price_per_night": 12000,
+                "total_price": 36000,
+                "currency": "INR",
+                "number_of_nights": 3,
+                "amenities": [
+                  "bathtub",
+                  "breakfast_included",
+                  "parking",
+                  "restaurant",
+                  "spa",
+                  "swimming_pool",
+                  "two_bedrooms",
+                  "wifi"
+                ],
+                "score": 10.0,
+                "match_reasons": [
+                  "Has extra guest capacity",
+                  "Breakfast is included"
+                ],
+                "available": true
+              }
+            ]
+          },
+          "status": "success"
+        }
+      ],
+      "final_response": "I have updated your guest count to 3 adults and 1 child (4 guests total). \n\nHere is the best available option for your stay in Jaipur from September 5 to September 8, 2026 (3 nights):\n\n### **Royal Family Suite** – Royal Haveli Jaipur (Amer, Jaipur)\n* **Nightly Rate:** ₹12,000 / night\n* **Total Price:** ₹36,000 (for 3 nights)\n* **Capacity:** Up to 5 guests\n* **Key Amenities:** Breakfast included, Swimming pool, Spa, Two bedrooms, Bathtub, Free WiFi, Parking, Restaurant\n* **Why it's a good match:** Accommodates your group of 4 with extra capacity and includes daily breakfast.\n\nWould you like to select this room, explore add-ons, or check alternative options?",
+      "final_state": {
+        "destination": "Jaipur",
+        "check_in": "2026-09-05",
+        "check_out": "2026-09-08",
+        "guests": {
+          "adults": 3,
+          "children": 1
+        },
+        "budget_per_night": null,
+        "required_amenities": [],
+        "preferred_amenities": [],
+        "special_requirements": [],
+        "selected_property_id": "royal-haveli-jaipur",
+        "selected_room_id": "haveli-family-suite",
+        "last_search_results": [
+          {
+            "property_id": "royal-haveli-jaipur",
+            "property_name": "Royal Haveli Jaipur",
+            "room_id": "haveli-family-suite",
+            "room_name": "Royal Family Suite",
+            "city": "Jaipur",
+            "area": "Amer",
+            "capacity": 5,
+            "price_per_night": 12000,
+            "total_price": 36000,
+            "currency": "INR",
+            "number_of_nights": 3,
+            "amenities": [
+              "bathtub",
+              "breakfast_included",
+              "parking",
+              "restaurant",
+              "spa",
+              "swimming_pool",
+              "two_bedrooms",
+              "wifi"
+            ],
+            "score": 10.0,
+            "match_reasons": [
+              "Has extra guest capacity",
+              "Breakfast is included"
+            ],
+            "available": true
+          }
+        ],
+        "current_option_index": 0,
+        "selected_add_ons": [],
+        "suggested_add_ons": [],
+        "last_agent_action": "recommend_options",
+        "pending_confirmation": null,
+        "active_hold_id": null
+      },
+      "final_action": "update_state",
+      "final_next_action": "collect_missing_information_or_search",
+      "agent_mode": "phase2",
+      "model_name": "gemini-3.6-flash"
+    },
+    {
+      "id": "extend-stay",
+      "name": "Extending stay updates checkout",
+      "session_id": "eval-extend-stay-e010edafec8a42c98242bba16e4ee91b",
+      "passed": true,
+      "failures": [],
+      "tool_names": [
+        "update_booking_state",
+        "get_supported_destinations",
+        "find_recommendations",
+        "update_booking_state",
+        "find_recommendations"
+      ],
+      "tool_traces": [
+        {
+          "tool": "update_booking_state",
+          "arguments": {
+            "destination": "Goa",
+            "check_in": "2026-09-05",
+            "check_out": "2026-09-08",
+            "adults": 2,
+            "children": 0,
+            "budget_per_night": null,
+            "required_amenities": null,
+            "preferred_amenities": null,
+            "special_requirements": null
+          },
+          "result": {
+            "updated": true,
+            "changed_fields": [
+              "destination",
+              "check_in",
+              "check_out",
+              "adults",
+              "children"
+            ],
+            "state": {
+              "destination": "Goa",
+              "check_in": "2026-09-05",
+              "check_out": "2026-09-08",
+              "guests": {
+                "adults": 2,
+                "children": 0
+              },
+              "budget_per_night": null,
+              "required_amenities": [],
+              "preferred_amenities": [],
+              "special_requirements": [],
+              "selected_property_id": null,
+              "selected_room_id": null,
+              "last_search_results": [],
+              "current_option_index": null,
+              "selected_add_ons": [],
+              "suggested_add_ons": [],
+              "last_agent_action": null,
+              "pending_confirmation": null,
+              "active_hold_id": null
+            }
+          },
+          "status": "success"
+        },
+        {
+          "tool": "get_supported_destinations",
+          "arguments": {},
+          "result": [
+            "Goa",
+            "Jaipur",
+            "Manali",
+            "Mumbai"
+          ],
+          "status": "success"
+        },
+        {
+          "tool": "find_recommendations",
+          "arguments": {},
+          "result": {
+            "count": 1,
+            "options": [
+              {
+                "property_id": "azure-bay-goa",
+                "property_name": "Azure Bay Resort",
+                "room_id": "azure-pool-villa",
+                "room_name": "Private Pool Villa",
+                "city": "Goa",
+                "area": "Candolim",
+                "capacity": 4,
+                "price_per_night": 18000,
+                "total_price": 54000,
+                "currency": "INR",
+                "number_of_nights": 3,
+                "amenities": [
+                  "bathtub",
+                  "beach_access",
+                  "breakfast_included",
+                  "parking",
+                  "private_pool",
+                  "restaurant",
+                  "swimming_pool",
+                  "wifi"
+                ],
+                "score": 10.0,
+                "match_reasons": [
+                  "Has extra guest capacity",
+                  "Breakfast is included"
+                ],
+                "available": true
+              }
+            ]
+          },
+          "status": "success"
+        },
+        {
+          "tool": "update_booking_state",
+          "arguments": {
+            "destination": null,
+            "check_in": null,
+            "check_out": "2026-09-09",
+            "adults": null,
+            "children": null,
+            "budget_per_night": null,
+            "required_amenities": null,
+            "preferred_amenities": null,
+            "special_requirements": null
+          },
+          "result": {
+            "updated": true,
+            "changed_fields": [
+              "check_out"
+            ],
+            "state": {
+              "destination": "Goa",
+              "check_in": "2026-09-05",
+              "check_out": "2026-09-09",
+              "guests": {
+                "adults": 2,
+                "children": 0
+              },
+              "budget_per_night": null,
+              "required_amenities": [],
+              "preferred_amenities": [],
+              "special_requirements": [],
+              "selected_property_id": null,
+              "selected_room_id": null,
+              "last_search_results": [],
+              "current_option_index": null,
+              "selected_add_ons": [],
+              "suggested_add_ons": [],
+              "last_agent_action": "recommend_options",
+              "pending_confirmation": null,
+              "active_hold_id": null
+            }
+          },
+          "status": "success"
+        },
+        {
+          "tool": "find_recommendations",
+          "arguments": {},
+          "result": {
+            "count": 1,
+            "options": [
+              {
+                "property_id": "azure-bay-goa",
+                "property_name": "Azure Bay Resort",
+                "room_id": "azure-pool-villa",
+                "room_name": "Private Pool Villa",
+                "city": "Goa",
+                "area": "Candolim",
+                "capacity": 4,
+                "price_per_night": 18000,
+                "total_price": 72000,
+                "currency": "INR",
+                "number_of_nights": 4,
+                "amenities": [
+                  "bathtub",
+                  "beach_access",
+                  "breakfast_included",
+                  "parking",
+                  "private_pool",
+                  "restaurant",
+                  "swimming_pool",
+                  "wifi"
+                ],
+                "score": 10.0,
+                "match_reasons": [
+                  "Has extra guest capacity",
+                  "Breakfast is included"
+                ],
+                "available": true
+              }
+            ]
+          },
+          "status": "success"
+        }
+      ],
+      "final_response": "I have updated your checkout date to **September 9, 2026** (4 nights total).\n\nHere is the updated details for your stay:\n\n### **1. Azure Bay Resort — Private Pool Villa**\n* **Location:** Candolim, Goa\n* **Dates:** September 5, 2026 – September 9, 2026 (4 nights)\n* **Guests:** 2 Adults\n* **Nightly Rate:** ₹18,000 / night\n* **Total Price:** ₹72,000\n* **Key Features:** Private Pool, Beach Access, Bathtub, Included Breakfast, Wi-Fi\n* **Match Reasons:** Has extra guest capacity, Breakfast is included\n\nWould you like to select this room and view available add-ons or check the cancellation policy?",
+      "final_state": {
+        "destination": "Goa",
+        "check_in": "2026-09-05",
+        "check_out": "2026-09-09",
+        "guests": {
+          "adults": 2,
+          "children": 0
+        },
+        "budget_per_night": null,
+        "required_amenities": [],
+        "preferred_amenities": [],
+        "special_requirements": [],
+        "selected_property_id": "azure-bay-goa",
+        "selected_room_id": "azure-pool-villa",
+        "last_search_results": [
+          {
+            "property_id": "azure-bay-goa",
+            "property_name": "Azure Bay Resort",
+            "room_id": "azure-pool-villa",
+            "room_name": "Private Pool Villa",
+            "city": "Goa",
+            "area": "Candolim",
+            "capacity": 4,
+            "price_per_night": 18000,
+            "total_price": 72000,
+            "currency": "INR",
+            "number_of_nights": 4,
+            "amenities": [
+              "bathtub",
+              "beach_access",
+              "breakfast_included",
+              "parking",
+              "private_pool",
+              "restaurant",
+              "swimming_pool",
+              "wifi"
+            ],
+            "score": 10.0,
+            "match_reasons": [
+              "Has extra guest capacity",
+              "Breakfast is included"
+            ],
+            "available": true
+          }
+        ],
+        "current_option_index": 0,
+        "selected_add_ons": [],
+        "suggested_add_ons": [],
+        "last_agent_action": "recommend_options",
+        "pending_confirmation": null,
+        "active_hold_id": null
+      },
+      "final_action": "update_state",
+      "final_next_action": "collect_missing_information_or_search",
+      "agent_mode": "phase2",
+      "model_name": "gemini-3.6-flash"
+    },
+    {
+      "id": "preferred-amenity",
+      "name": "Preferred amenity is not mandatory",
+      "session_id": "eval-preferred-amenity-4f3dae8f7e9344b194da3e8842c40645",
+      "passed": true,
+      "failures": [],
+      "tool_names": [
+        "update_booking_state",
+        "find_recommendations"
+      ],
+      "tool_traces": [
+        {
+          "tool": "update_booking_state",
+          "arguments": {
+            "destination": "Goa",
+            "check_in": "2026-09-05",
+            "check_out": "2026-09-08",
+            "adults": 2,
+            "children": 0,
+            "budget_per_night": null,
+            "required_amenities": [],
+            "preferred_amenities": [
+              "private_pool"
+            ],
+            "special_requirements": null
+          },
+          "result": {
+            "updated": true,
+            "changed_fields": [
+              "destination",
+              "check_in",
+              "check_out",
+              "adults",
+              "children",
+              "required_amenities",
+              "preferred_amenities"
+            ],
+            "state": {
+              "destination": "Goa",
+              "check_in": "2026-09-05",
+              "check_out": "2026-09-08",
+              "guests": {
+                "adults": 2,
+                "children": 0
+              },
+              "budget_per_night": null,
+              "required_amenities": [],
+              "preferred_amenities": [
+                "private_pool"
+              ],
+              "special_requirements": [],
+              "selected_property_id": null,
+              "selected_room_id": null,
+              "last_search_results": [],
+              "current_option_index": null,
+              "selected_add_ons": [],
+              "suggested_add_ons": [],
+              "last_agent_action": null,
+              "pending_confirmation": null,
+              "active_hold_id": null
+            }
+          },
+          "status": "success"
+        },
+        {
+          "tool": "find_recommendations",
+          "arguments": {},
+          "result": {
+            "count": 1,
+            "options": [
+              {
+                "property_id": "azure-bay-goa",
+                "property_name": "Azure Bay Resort",
+                "room_id": "azure-pool-villa",
+                "room_name": "Private Pool Villa",
+                "city": "Goa",
+                "area": "Candolim",
+                "capacity": 4,
+                "price_per_night": 18000,
+                "total_price": 54000,
+                "currency": "INR",
+                "number_of_nights": 3,
+                "amenities": [
+                  "bathtub",
+                  "beach_access",
+                  "breakfast_included",
+                  "parking",
+                  "private_pool",
+                  "restaurant",
+                  "swimming_pool",
+                  "wifi"
+                ],
+                "score": 25.0,
+                "match_reasons": [
+                  "Matches preferred private pool",
+                  "Has extra guest capacity",
+                  "Breakfast is included"
+                ],
+                "available": true
+              }
+            ]
+          },
+          "status": "success"
+        }
+      ],
+      "final_response": "Here is the recommended option for your stay in Goa from September 5, 2026 to September 8, 2026 (3 nights) for 2 adults:\n\n### 1. **Private Pool Villa** – Azure Bay Resort (Candolim, Goa)\n* **Total Price:** ₹54,000 (₹18,000 / night)\n* **Why it's a great match:**\n  * Features a **private pool**, matching your preference\n  * Includes complementary **breakfast**\n  * Spaciously accommodates your group (capacity up to 4 guests)\n* **Amenities:** Private Pool, Beach Access, Breakfast Included, Free Wi-Fi, Parking, Bathtub, Restaurant, Shared Swimming Pool\n\nWould you like to select this option, see add-on options, check policies, or adjust any preferences/budget?",
+      "final_state": {
+        "destination": "Goa",
+        "check_in": "2026-09-05",
+        "check_out": "2026-09-08",
+        "guests": {
+          "adults": 2,
+          "children": 0
+        },
+        "budget_per_night": null,
+        "required_amenities": [],
+        "preferred_amenities": [
+          "private_pool"
+        ],
+        "special_requirements": [],
+        "selected_property_id": "azure-bay-goa",
+        "selected_room_id": "azure-pool-villa",
+        "last_search_results": [
+          {
+            "property_id": "azure-bay-goa",
+            "property_name": "Azure Bay Resort",
+            "room_id": "azure-pool-villa",
+            "room_name": "Private Pool Villa",
+            "city": "Goa",
+            "area": "Candolim",
+            "capacity": 4,
+            "price_per_night": 18000,
+            "total_price": 54000,
+            "currency": "INR",
+            "number_of_nights": 3,
+            "amenities": [
+              "bathtub",
+              "beach_access",
+              "breakfast_included",
+              "parking",
+              "private_pool",
+              "restaurant",
+              "swimming_pool",
+              "wifi"
+            ],
+            "score": 25.0,
+            "match_reasons": [
+              "Matches preferred private pool",
+              "Has extra guest capacity",
+              "Breakfast is included"
+            ],
+            "available": true
+          }
+        ],
+        "current_option_index": 0,
+        "selected_add_ons": [],
+        "suggested_add_ons": [],
+        "last_agent_action": "recommend_options",
+        "pending_confirmation": null,
+        "active_hold_id": null
+      },
+      "final_action": "update_state",
+      "final_next_action": "collect_missing_information_or_search",
+      "agent_mode": "phase2",
+      "model_name": "gemini-3.6-flash"
+    },
+    {
+      "id": "required-amenity",
+      "name": "Mandatory amenity is required",
+      "session_id": "eval-required-amenity-4abc7d67cab2401186eb72b818419b56",
+      "passed": true,
+      "failures": [],
+      "tool_names": [
+        "update_booking_state",
+        "find_recommendations"
+      ],
+      "tool_traces": [
+        {
+          "tool": "update_booking_state",
+          "arguments": {
+            "destination": "Goa",
+            "check_in": "2026-09-05",
+            "check_out": "2026-09-08",
+            "adults": 2,
+            "children": 0,
+            "budget_per_night": null,
+            "required_amenities": [
+              "private_pool"
+            ],
+            "preferred_amenities": [],
+            "special_requirements": null
+          },
+          "result": {
+            "updated": true,
+            "changed_fields": [
+              "destination",
+              "check_in",
+              "check_out",
+              "adults",
+              "children",
+              "required_amenities",
+              "preferred_amenities"
+            ],
+            "state": {
+              "destination": "Goa",
+              "check_in": "2026-09-05",
+              "check_out": "2026-09-08",
+              "guests": {
+                "adults": 2,
+                "children": 0
+              },
+              "budget_per_night": null,
+              "required_amenities": [
+                "private_pool"
+              ],
+              "preferred_amenities": [],
+              "special_requirements": [],
+              "selected_property_id": null,
+              "selected_room_id": null,
+              "last_search_results": [],
+              "current_option_index": null,
+              "selected_add_ons": [],
+              "suggested_add_ons": [],
+              "last_agent_action": null,
+              "pending_confirmation": null,
+              "active_hold_id": null
+            }
+          },
+          "status": "success"
+        },
+        {
+          "tool": "find_recommendations",
+          "arguments": {},
+          "result": {
+            "count": 1,
+            "options": [
+              {
+                "property_id": "azure-bay-goa",
+                "property_name": "Azure Bay Resort",
+                "room_id": "azure-pool-villa",
+                "room_name": "Private Pool Villa",
+                "city": "Goa",
+                "area": "Candolim",
+                "capacity": 4,
+                "price_per_night": 18000,
+                "total_price": 54000,
+                "currency": "INR",
+                "number_of_nights": 3,
+                "amenities": [
+                  "bathtub",
+                  "beach_access",
+                  "breakfast_included",
+                  "parking",
+                  "private_pool",
+                  "restaurant",
+                  "swimming_pool",
+                  "wifi"
+                ],
+                "score": 35.0,
+                "match_reasons": [
+                  "Includes required private pool",
+                  "Has extra guest capacity",
+                  "Breakfast is included"
+                ],
+                "available": true
+              }
+            ]
+          },
+          "status": "success"
+        }
+      ],
+      "final_response": "I found 1 available option in Goa for your stay from September 5, 2026, to September 8, 2026:\n\n### **Option 1: Azure Bay Resort** — *Private Pool Villa*\n* **Location:** Candolim, Goa\n* **Nightly Rate:** ₹18,000 / night\n* **Total Price:** ₹54,000 for 3 nights (2 adults)\n* **Key Amenities:** Private pool, beach access, complimentary breakfast, bathtub, Wi-Fi, parking\n* **Why it's a great match:**\n  * Includes your required **private pool**\n  * Breakfast is included\n  * Accommodates up to 4 guests comfortably\n\nWould you like to select this option, view property policies, or explore add-ons?",
+      "final_state": {
+        "destination": "Goa",
+        "check_in": "2026-09-05",
+        "check_out": "2026-09-08",
+        "guests": {
+          "adults": 2,
+          "children": 0
+        },
+        "budget_per_night": null,
+        "required_amenities": [
+          "private_pool"
+        ],
+        "preferred_amenities": [],
+        "special_requirements": [],
+        "selected_property_id": "azure-bay-goa",
+        "selected_room_id": "azure-pool-villa",
+        "last_search_results": [
+          {
+            "property_id": "azure-bay-goa",
+            "property_name": "Azure Bay Resort",
+            "room_id": "azure-pool-villa",
+            "room_name": "Private Pool Villa",
+            "city": "Goa",
+            "area": "Candolim",
+            "capacity": 4,
+            "price_per_night": 18000,
+            "total_price": 54000,
+            "currency": "INR",
+            "number_of_nights": 3,
+            "amenities": [
+              "bathtub",
+              "beach_access",
+              "breakfast_included",
+              "parking",
+              "private_pool",
+              "restaurant",
+              "swimming_pool",
+              "wifi"
+            ],
+            "score": 35.0,
+            "match_reasons": [
+              "Includes required private pool",
+              "Has extra guest capacity",
+              "Breakfast is included"
+            ],
+            "available": true
+          }
+        ],
+        "current_option_index": 0,
+        "selected_add_ons": [],
+        "suggested_add_ons": [],
+        "last_agent_action": "recommend_options",
+        "pending_confirmation": null,
+        "active_hold_id": null
+      },
+      "final_action": "update_state",
+      "final_next_action": "collect_missing_information_or_search",
+      "agent_mode": "phase2",
+      "model_name": "gemini-3.6-flash"
+    },
+    {
+      "id": "unsupported-destination",
+      "name": "Unsupported destination is not invented",
+      "session_id": "eval-unsupported-destination-2d8d053455a34c07a16032e16013bf72",
+      "passed": true,
+      "failures": [],
+      "tool_names": [
+        "update_booking_state",
+        "get_supported_destinations",
+        "find_recommendations"
+      ],
+      "tool_traces": [
+        {
+          "tool": "update_booking_state",
+          "arguments": {
+            "destination": "Paris",
+            "check_in": "2026-09-05",
+            "check_out": "2026-09-08",
+            "adults": 2,
+            "children": 0,
+            "budget_per_night": null,
+            "required_amenities": null,
+            "preferred_amenities": null,
+            "special_requirements": null
+          },
+          "result": {
+            "updated": true,
+            "changed_fields": [
+              "destination",
+              "check_in",
+              "check_out",
+              "adults",
+              "children"
+            ],
+            "state": {
+              "destination": "Paris",
+              "check_in": "2026-09-05",
+              "check_out": "2026-09-08",
+              "guests": {
+                "adults": 2,
+                "children": 0
+              },
+              "budget_per_night": null,
+              "required_amenities": [],
+              "preferred_amenities": [],
+              "special_requirements": [],
+              "selected_property_id": null,
+              "selected_room_id": null,
+              "last_search_results": [],
+              "current_option_index": null,
+              "selected_add_ons": [],
+              "suggested_add_ons": [],
+              "last_agent_action": null,
+              "pending_confirmation": null,
+              "active_hold_id": null
+            }
+          },
+          "status": "success"
+        },
+        {
+          "tool": "get_supported_destinations",
+          "arguments": {},
+          "result": [
+            "Goa",
+            "Jaipur",
+            "Manali",
+            "Mumbai"
+          ],
+          "status": "success"
+        },
+        {
+          "tool": "find_recommendations",
+          "arguments": {},
+          "result": {
+            "count": 0,
+            "options": []
+          },
+          "status": "success"
+        }
+      ],
+      "final_response": "We currently do not have hotel inventory in Paris. \n\nOur available destinations are **Goa**, **Jaipur**, **Manali**, and **Mumbai**. \n\nPlease let me know if you would like to search for hotels in one of these cities instead!",
+      "final_state": {
+        "destination": "Paris",
+        "check_in": "2026-09-05",
+        "check_out": "2026-09-08",
+        "guests": {
+          "adults": 2,
+          "children": 0
+        },
+        "budget_per_night": null,
+        "required_amenities": [],
+        "preferred_amenities": [],
+        "special_requirements": [],
+        "selected_property_id": null,
+        "selected_room_id": null,
+        "last_search_results": [],
+        "current_option_index": null,
+        "selected_add_ons": [],
+        "suggested_add_ons": [],
+        "last_agent_action": "recommend_options",
+        "pending_confirmation": null,
+        "active_hold_id": null
+      },
+      "final_action": "update_state",
+      "final_next_action": "collect_missing_information_or_search",
+      "agent_mode": "phase2",
+      "model_name": "gemini-3.6-flash"
+    },
+    {
+      "id": "unknown-information",
+      "name": "Unknown heated pool information",
+      "session_id": "eval-unknown-information-1a16287d59c741718659335fd2470bb4",
+      "passed": true,
+      "failures": [],
+      "tool_names": [
+        "update_booking_state",
+        "get_supported_destinations",
+        "find_recommendations",
+        "get_room_details"
+      ],
+      "tool_traces": [
+        {
+          "tool": "update_booking_state",
+          "arguments": {
+            "destination": "Goa",
+            "check_in": "2026-09-05",
+            "check_out": "2026-09-08",
+            "adults": 2,
+            "children": 0,
+            "budget_per_night": null,
+            "required_amenities": null,
+            "preferred_amenities": null,
+            "special_requirements": null
+          },
+          "result": {
+            "updated": true,
+            "changed_fields": [
+              "destination",
+              "check_in",
+              "check_out",
+              "adults",
+              "children"
+            ],
+            "state": {
+              "destination": "Goa",
+              "check_in": "2026-09-05",
+              "check_out": "2026-09-08",
+              "guests": {
+                "adults": 2,
+                "children": 0
+              },
+              "budget_per_night": null,
+              "required_amenities": [],
+              "preferred_amenities": [],
+              "special_requirements": [],
+              "selected_property_id": null,
+              "selected_room_id": null,
+              "last_search_results": [],
+              "current_option_index": null,
+              "selected_add_ons": [],
+              "suggested_add_ons": [],
+              "last_agent_action": null,
+              "pending_confirmation": null,
+              "active_hold_id": null
+            }
+          },
+          "status": "success"
+        },
+        {
+          "tool": "get_supported_destinations",
+          "arguments": {},
+          "result": [
+            "Goa",
+            "Jaipur",
+            "Manali",
+            "Mumbai"
+          ],
+          "status": "success"
+        },
+        {
+          "tool": "find_recommendations",
+          "arguments": {},
+          "result": {
+            "count": 1,
+            "options": [
+              {
+                "property_id": "azure-bay-goa",
+                "property_name": "Azure Bay Resort",
+                "room_id": "azure-pool-villa",
+                "room_name": "Private Pool Villa",
+                "city": "Goa",
+                "area": "Candolim",
+                "capacity": 4,
+                "price_per_night": 18000,
+                "total_price": 54000,
+                "currency": "INR",
+                "number_of_nights": 3,
+                "amenities": [
+                  "bathtub",
+                  "beach_access",
+                  "breakfast_included",
+                  "parking",
+                  "private_pool",
+                  "restaurant",
+                  "swimming_pool",
+                  "wifi"
+                ],
+                "score": 10.0,
+                "match_reasons": [
+                  "Has extra guest capacity",
+                  "Breakfast is included"
+                ],
+                "available": true
+              }
+            ]
+          },
+          "status": "success"
+        },
+        {
+          "tool": "get_room_details",
+          "arguments": {
+            "room_id": "azure-pool-villa"
+          },
+          "result": {
+            "property_id": "azure-bay-goa",
+            "property_name": "Azure Bay Resort",
+            "currency": "INR",
+            "location": {
+              "city": "Goa",
+              "state": "Goa",
+              "country": "India",
+              "area": "Candolim",
+              "aliases": [
+                "North Goa",
+                "Candolim Beach"
+              ]
+            },
+            "property_amenities": [
+              "swimming_pool",
+              "wifi",
+              "restaurant",
+              "parking",
+              "beach_access"
+            ],
+            "room": {
+              "id": "azure-pool-villa",
+              "name": "Private Pool Villa",
+              "price_per_night": 18000,
+              "capacity": 4,
+              "quantity": 2,
+              "amenities": [
+                "private_pool",
+                "wifi",
+                "bathtub",
+                "breakfast_included"
+              ],
+              "unavailable_dates": [
+                "2026-09-12",
+                "2026-09-13"
+              ]
+            },
+            "policies": {
+              "check_in": "14:00",
+              "check_out": "11:00",
+              "cancellation": "Free cancellation up to 48 hours before check-in",
+              "children_allowed": true,
+              "pets_allowed": false
+            },
+            "add_ons": [
+              {
+                "id": "goa-airport-pickup",
+                "name": "Airport pickup",
+                "price": 1800,
+                "pricing_type": "per_booking"
+              },
+              {
+                "id": "azure-breakfast",
+                "name": "Breakfast",
+                "price": 700,
+                "pricing_type": "per_guest_per_night"
+              }
+            ]
+          },
+          "status": "success"
+        }
+      ],
+      "final_response": "Information regarding whether the swimming pool (or private pool) is heated is not specified in the property details.",
+      "final_state": {
+        "destination": "Goa",
+        "check_in": "2026-09-05",
+        "check_out": "2026-09-08",
+        "guests": {
+          "adults": 2,
+          "children": 0
+        },
+        "budget_per_night": null,
+        "required_amenities": [],
+        "preferred_amenities": [],
+        "special_requirements": [],
+        "selected_property_id": "azure-bay-goa",
+        "selected_room_id": "azure-pool-villa",
+        "last_search_results": [
+          {
+            "property_id": "azure-bay-goa",
+            "property_name": "Azure Bay Resort",
+            "room_id": "azure-pool-villa",
+            "room_name": "Private Pool Villa",
+            "city": "Goa",
+            "area": "Candolim",
+            "capacity": 4,
+            "price_per_night": 18000,
+            "total_price": 54000,
+            "currency": "INR",
+            "number_of_nights": 3,
+            "amenities": [
+              "bathtub",
+              "beach_access",
+              "breakfast_included",
+              "parking",
+              "private_pool",
+              "restaurant",
+              "swimming_pool",
+              "wifi"
+            ],
+            "score": 10.0,
+            "match_reasons": [
+              "Has extra guest capacity",
+              "Breakfast is included"
+            ],
+            "available": true
+          }
+        ],
+        "current_option_index": 0,
+        "selected_add_ons": [],
+        "suggested_add_ons": [],
+        "last_agent_action": "recommend_options",
+        "pending_confirmation": null,
+        "active_hold_id": null
+      },
+      "final_action": "provide_room_details",
+      "final_next_action": "continue_toward_booking",
+      "agent_mode": "phase2",
+      "model_name": "gemini-3.6-flash"
+    },
+    {
+      "id": "capacity-conflict",
+      "name": "Capacity conflict is handled",
+      "session_id": "eval-capacity-conflict-e91c4bfdd8b64f0bad9c292034e78cc0",
+      "passed": true,
+      "failures": [],
+      "tool_names": [
+        "update_booking_state",
+        "get_supported_destinations",
+        "find_recommendations",
+        "search_properties",
+        "search_properties",
+        "find_alternatives"
+      ],
+      "tool_traces": [
+        {
+          "tool": "update_booking_state",
+          "arguments": {
+            "destination": "Goa",
+            "check_in": "2026-09-05",
+            "check_out": "2026-09-08",
+            "adults": 10,
+            "children": 0,
+            "budget_per_night": null,
+            "required_amenities": null,
+            "preferred_amenities": null,
+            "special_requirements": null
+          },
+          "result": {
+            "updated": true,
+            "changed_fields": [
+              "destination",
+              "check_in",
+              "check_out",
+              "adults",
+              "children"
+            ],
+            "state": {
+              "destination": "Goa",
+              "check_in": "2026-09-05",
+              "check_out": "2026-09-08",
+              "guests": {
+                "adults": 10,
+                "children": 0
+              },
+              "budget_per_night": null,
+              "required_amenities": [],
+              "preferred_amenities": [],
+              "special_requirements": [],
+              "selected_property_id": null,
+              "selected_room_id": null,
+              "last_search_results": [],
+              "current_option_index": null,
+              "selected_add_ons": [],
+              "suggested_add_ons": [],
+              "last_agent_action": null,
+              "pending_confirmation": null,
+              "active_hold_id": null
+            }
+          },
+          "status": "success"
+        },
+        {
+          "tool": "get_supported_destinations",
+          "arguments": {},
+          "result": [
+            "Goa",
+            "Jaipur",
+            "Manali",
+            "Mumbai"
+          ],
+          "status": "success"
+        },
+        {
+          "tool": "find_recommendations",
+          "arguments": {},
+          "result": {
+            "count": 0,
+            "options": []
+          },
+          "status": "success"
+        },
+        {
+          "tool": "search_properties",
+          "arguments": {
+            "destination": "Goa",
+            "guest_count": 10,
+            "budget_per_night": null,
+            "required_amenities": []
+          },
+          "result": [],
+          "status": "success"
+        },
+        {
+          "tool": "search_properties",
+          "arguments": {
+            "destination": "Goa",
+            "guest_count": 2,
+            "budget_per_night": null,
+            "required_amenities": []
+          },
+          "result": [
+            {
+              "property_id": "azure-bay-goa",
+              "property_name": "Azure Bay Resort",
+              "city": "Goa",
+              "state": "Goa",
+              "country": "India",
+              "area": "Candolim",
+              "room_id": "azure-deluxe",
+              "room_name": "Deluxe Garden Room",
+              "capacity": 3,
+              "price_per_night": 7500,
+              "currency": "INR",
+              "property_amenities": [
+                "swimming_pool",
+                "wifi",
+                "restaurant",
+                "parking",
+                "beach_access"
+              ],
+              "room_amenities": [
+                "wifi",
+                "garden_view",
+                "air_conditioning"
+              ],
+              "combined_amenities": [
+                "air_conditioning",
+                "beach_access",
+                "garden_view",
+                "parking",
+                "restaurant",
+                "swimming_pool",
+                "wifi"
+              ]
+            },
+            {
+              "property_id": "azure-bay-goa",
+              "property_name": "Azure Bay Resort",
+              "city": "Goa",
+              "state": "Goa",
+              "country": "India",
+              "area": "Candolim",
+              "room_id": "azure-pool-villa",
+              "room_name": "Private Pool Villa",
+              "capacity": 4,
+              "price_per_night": 18000,
+              "currency": "INR",
+              "property_amenities": [
+                "swimming_pool",
+                "wifi",
+                "restaurant",
+                "parking",
+                "beach_access"
+              ],
+              "room_amenities": [
+                "private_pool",
+                "wifi",
+                "bathtub",
+                "breakfast_included"
+              ],
+              "combined_amenities": [
+                "bathtub",
+                "beach_access",
+                "breakfast_included",
+                "parking",
+                "private_pool",
+                "restaurant",
+                "swimming_pool",
+                "wifi"
+              ]
+            }
+          ],
+          "status": "success"
+        },
+        {
+          "tool": "find_alternatives",
+          "arguments": {
+            "mode": "relax_preferences"
+          },
+          "result": {
+            "mode": "relax_preferences",
+            "changed_constraints": [
+              "Removed optional preferences"
+            ],
+            "options": []
+          },
+          "status": "success"
+        }
+      ],
+      "final_response": "I searched for options in Goa for 10 adults from September 5, 2026, to September 8, 2026, but there are no single rooms available that can accommodate 10 guests. \n\nThe maximum room capacity available in Goa is 4 guests per room (such as the Private Pool Villa at Azure Bay Resort). \n\nWould you like to explore booking multiple rooms to accommodate your group of 10?",
+      "final_state": {
+        "destination": "Goa",
+        "check_in": "2026-09-05",
+        "check_out": "2026-09-08",
+        "guests": {
+          "adults": 10,
+          "children": 0
+        },
+        "budget_per_night": null,
+        "required_amenities": [],
+        "preferred_amenities": [],
+        "special_requirements": [],
+        "selected_property_id": null,
+        "selected_room_id": null,
+        "last_search_results": [],
+        "current_option_index": null,
+        "selected_add_ons": [],
+        "suggested_add_ons": [],
+        "last_agent_action": "recommend_options",
+        "pending_confirmation": null,
+        "active_hold_id": null
+      },
+      "final_action": "search_properties",
+      "final_next_action": "check_availability",
+      "agent_mode": "phase2",
+      "model_name": "gemini-3.6-flash"
+    },
+    {
+      "id": "too-expensive-recovery",
+      "name": "Too expensive preserves context",
+      "session_id": "eval-too-expensive-recovery-4628dd236ae94f39a667ecec91289515",
+      "passed": true,
+      "failures": [],
+      "tool_names": [
+        "update_booking_state",
+        "find_recommendations",
+        "find_alternatives"
+      ],
+      "tool_traces": [
+        {
+          "tool": "update_booking_state",
+          "arguments": {
+            "destination": "Goa",
+            "check_in": "2026-09-05",
+            "check_out": "2026-09-08",
+            "adults": 2,
+            "children": null,
+            "budget_per_night": 25000,
+            "required_amenities": null,
+            "preferred_amenities": null,
+            "special_requirements": null
+          },
+          "result": {
+            "updated": true,
+            "changed_fields": [
+              "destination",
+              "check_in",
+              "check_out",
+              "adults",
+              "budget_per_night"
+            ],
+            "state": {
+              "destination": "Goa",
+              "check_in": "2026-09-05",
+              "check_out": "2026-09-08",
+              "guests": {
+                "adults": 2,
+                "children": 0
+              },
+              "budget_per_night": 25000,
+              "required_amenities": [],
+              "preferred_amenities": [],
+              "special_requirements": [],
+              "selected_property_id": null,
+              "selected_room_id": null,
+              "last_search_results": [],
+              "current_option_index": null,
+              "selected_add_ons": [],
+              "suggested_add_ons": [],
+              "last_agent_action": null,
+              "pending_confirmation": null,
+              "active_hold_id": null
+            }
+          },
+          "status": "success"
+        },
+        {
+          "tool": "find_recommendations",
+          "arguments": {},
+          "result": {
+            "count": 1,
+            "options": [
+              {
+                "property_id": "azure-bay-goa",
+                "property_name": "Azure Bay Resort",
+                "room_id": "azure-pool-villa",
+                "room_name": "Private Pool Villa",
+                "city": "Goa",
+                "area": "Candolim",
+                "capacity": 4,
+                "price_per_night": 18000,
+                "total_price": 54000,
+                "currency": "INR",
+                "number_of_nights": 3,
+                "amenities": [
+                  "bathtub",
+                  "beach_access",
+                  "breakfast_included",
+                  "parking",
+                  "private_pool",
+                  "restaurant",
+                  "swimming_pool",
+                  "wifi"
+                ],
+                "score": 30.0,
+                "match_reasons": [
+                  "Within the nightly budget",
+                  "Has extra guest capacity",
+                  "Breakfast is included"
+                ],
+                "available": true
+              }
+            ]
+          },
+          "status": "success"
+        },
+        {
+          "tool": "find_alternatives",
+          "arguments": {
+            "mode": "cheapest"
+          },
+          "result": {
+            "mode": "cheapest",
+            "changed_constraints": [
+              "Searched all prices while keeping capacity, dates and required amenities"
+            ],
+            "options": [
+              {
+                "property_id": "azure-bay-goa",
+                "property_name": "Azure Bay Resort",
+                "room_id": "azure-pool-villa",
+                "room_name": "Private Pool Villa",
+                "city": "Goa",
+                "area": "Candolim",
+                "capacity": 4,
+                "price_per_night": 18000,
+                "total_price": 54000,
+                "currency": "INR",
+                "number_of_nights": 3,
+                "amenities": [
+                  "bathtub",
+                  "beach_access",
+                  "breakfast_included",
+                  "parking",
+                  "private_pool",
+                  "restaurant",
+                  "swimming_pool",
+                  "wifi"
+                ],
+                "score": 10.0,
+                "match_reasons": [
+                  "Has extra guest capacity",
+                  "Breakfast is included"
+                ],
+                "available": true
+              }
+            ]
+          },
+          "status": "success"
+        }
+      ],
+      "final_response": "The **Private Pool Villa** at **Azure Bay Resort** is currently the lowest-priced available option matching your criteria for your stay in Goa (Sep 5 – Sep 8, 2026):\n\n* **Property:** Azure Bay Resort (Candolim, Goa)\n* **Room:** Private Pool Villa\n* **Nightly Rate:** ₹18,000 / night\n* **Total Price:** ₹54,000 for 3 nights\n* **Key Features:** Includes breakfast, beach access, swimming pool, private pool, and Wi-Fi.\n\nIf you'd like to find lower prices, we can explore adjusting your dates, guest capacity, or required amenities. Would you like to select this option or try adjusting your stay details?",
+      "final_state": {
+        "destination": "Goa",
+        "check_in": "2026-09-05",
+        "check_out": "2026-09-08",
+        "guests": {
+          "adults": 2,
+          "children": 0
+        },
+        "budget_per_night": 25000,
+        "required_amenities": [],
+        "preferred_amenities": [],
+        "special_requirements": [],
+        "selected_property_id": "azure-bay-goa",
+        "selected_room_id": "azure-pool-villa",
+        "last_search_results": [
+          {
+            "property_id": "azure-bay-goa",
+            "property_name": "Azure Bay Resort",
+            "room_id": "azure-pool-villa",
+            "room_name": "Private Pool Villa",
+            "city": "Goa",
+            "area": "Candolim",
+            "capacity": 4,
+            "price_per_night": 18000,
+            "total_price": 54000,
+            "currency": "INR",
+            "number_of_nights": 3,
+            "amenities": [
+              "bathtub",
+              "beach_access",
+              "breakfast_included",
+              "parking",
+              "private_pool",
+              "restaurant",
+              "swimming_pool",
+              "wifi"
+            ],
+            "score": 10.0,
+            "match_reasons": [
+              "Has extra guest capacity",
+              "Breakfast is included"
+            ],
+            "available": true
+          }
+        ],
+        "current_option_index": 0,
+        "selected_add_ons": [],
+        "suggested_add_ons": [],
+        "last_agent_action": "recommend_options",
+        "pending_confirmation": null,
+        "active_hold_id": null
+      },
+      "final_action": "tool_execution",
+      "final_next_action": "continue_conversation",
+      "agent_mode": "phase2",
+      "model_name": "gemini-3.6-flash"
+    },
+    {
+      "id": "invalid-date-order",
+      "name": "Invalid date order is rejected",
+      "session_id": "eval-invalid-date-order-3cb1236992ac48049c798c1cc19c43db",
+      "passed": true,
+      "failures": [],
+      "tool_names": [
+        "update_booking_state",
+        "update_booking_state"
+      ],
+      "tool_traces": [
+        {
+          "tool": "update_booking_state",
+          "arguments": {
+            "destination": "Goa",
+            "check_in": "2026-09-10",
+            "check_out": "2026-09-08",
+            "adults": 2,
+            "children": 0,
+            "budget_per_night": null,
+            "required_amenities": null,
+            "preferred_amenities": null,
+            "special_requirements": null
+          },
+          "result": {
+            "success": false,
+            "tool": "update_booking_state",
+            "error_type": "ValueError",
+            "error": "Check-out must be after check-in."
+          },
+          "status": "error"
+        },
+        {
+          "tool": "update_booking_state",
+          "arguments": {
+            "destination": "Goa",
+            "check_in": "2026-09-10",
+            "check_out": null,
+            "adults": 2,
+            "children": 0,
+            "budget_per_night": null,
+            "required_amenities": null,
+            "preferred_amenities": null,
+            "special_requirements": null
+          },
+          "result": {
+            "updated": true,
+            "changed_fields": [
+              "destination",
+              "check_in",
+              "adults",
+              "children"
+            ],
+            "state": {
+              "destination": "Goa",
+              "check_in": "2026-09-10",
+              "check_out": null,
+              "guests": {
+                "adults": 2,
+                "children": 0
+              },
+              "budget_per_night": null,
+              "required_amenities": [],
+              "preferred_amenities": [],
+              "special_requirements": [],
+              "selected_property_id": null,
+              "selected_room_id": null,
+              "last_search_results": [],
+              "current_option_index": null,
+              "selected_add_ons": [],
+              "suggested_add_ons": [],
+              "last_agent_action": null,
+              "pending_confirmation": null,
+              "active_hold_id": null
+            }
+          },
+          "status": "success"
+        }
+      ],
+      "final_response": "Your check-out date (September 8, 2026) is before your check-in date (September 10, 2026). Could you please clarify your intended check-in and check-out dates?",
+      "final_state": {
+        "destination": "Goa",
+        "check_in": "2026-09-10",
+        "check_out": null,
+        "guests": {
+          "adults": 2,
+          "children": 0
+        },
+        "budget_per_night": null,
+        "required_amenities": [],
+        "preferred_amenities": [],
+        "special_requirements": [],
+        "selected_property_id": null,
+        "selected_room_id": null,
+        "last_search_results": [],
+        "current_option_index": null,
+        "selected_add_ons": [],
+        "suggested_add_ons": [],
+        "last_agent_action": null,
+        "pending_confirmation": null,
+        "active_hold_id": null
+      },
+      "final_action": "update_state",
+      "final_next_action": "collect_missing_information_or_search",
+      "agent_mode": "phase2",
+      "model_name": "gemini-3.6-flash"
+    }
+  ]
+}
