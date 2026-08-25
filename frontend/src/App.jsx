@@ -631,7 +631,7 @@ async function handleDeleteSession(
             Hotel booking assistant
           </span>
 
-          <h1>Smart Suite Finder</h1>
+          <h1>Mira!</h1>
 
           <p>
             Test conversation memory, hotel search,
